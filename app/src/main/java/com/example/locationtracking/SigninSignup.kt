@@ -18,13 +18,16 @@ class SigninSignup : AppCompatActivity() {
 
     private val repo = UserRepository()
 
-    private val viewModel: AuthViewModel by viewModels<AuthViewModel> {
+    private val viewModel: AuthViewModel by viewModels {
         object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return AuthViewModel(repo) as T
+                if (modelClass.isAssignableFrom(AuthViewModel::class.java)) {
+                    return AuthViewModel(repo) as T
+                }
+                throw IllegalArgumentException("Unknown ViewModel class")
             }
         }
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

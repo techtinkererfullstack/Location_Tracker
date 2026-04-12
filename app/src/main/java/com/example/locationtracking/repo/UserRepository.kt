@@ -37,9 +37,21 @@ class UserRepository {
             .addOnFailureListener { e ->
                 onComplete(false, e.message)
             }
+    }
 
+
+    fun getAllUsers(onComplete: (List<AppUsers>) -> Unit) {
+        db.collection("users").get().addOnSuccessListener { snapshot ->
+            val list = snapshot.documents.mapNotNull { doc ->
+                doc.toObject(AppUsers::class.java)
+            }
+            onComplete(list)
+        }.addOnFailureListener { e ->
+            onComplete(emptyList())
+        }
 
     }
+
 
     fun currentUserId(): String? = auth.currentUser?.uid
 
