@@ -1,5 +1,6 @@
 package com.example.locationtracking
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -62,6 +63,8 @@ class SigninSignup : AppCompatActivity() {
                     viewModel.login(email, password)
                 }
             }
+
+
         }
 
 
@@ -101,6 +104,7 @@ class SigninSignup : AppCompatActivity() {
         viewModel.registerResult.observe(this) { (success, message) ->
             if (success) {
                 Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
+                navigateToFrindList()
             } else {
                 Toast.makeText(this, "Registration Filed", Toast.LENGTH_SHORT).show()
             }
@@ -108,6 +112,7 @@ class SigninSignup : AppCompatActivity() {
         viewModel.loginResult.observe(this) { (success, message) ->
             if (success) {
                 Toast.makeText(this, "Logged In Successful", Toast.LENGTH_SHORT).show()
+                navigateToFrindList()
             } else {
                 Toast.makeText(this, "Logged In Filed", Toast.LENGTH_SHORT).show()
             }
@@ -115,4 +120,11 @@ class SigninSignup : AppCompatActivity() {
 
 
     }
+
+    private fun navigateToFrindList() {
+        val intent = Intent(this, FrindList::class.java)
+        startActivity(intent)
+        finish()
+    }
+
 }

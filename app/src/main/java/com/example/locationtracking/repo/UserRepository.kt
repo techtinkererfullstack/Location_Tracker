@@ -15,7 +15,7 @@ class UserRepository {
             .addOnSuccessListener { result ->
                 val userId = result.user?.uid ?: return@addOnSuccessListener
                 val userName = email.substringBefore("@")
-                val user = AppUsers(userId, userName, email)
+                val user = AppUsers(userId=userId, email, userName)
                 db.collection("users").document(userId).set(user)
                     .addOnSuccessListener {
                         onComplete(true, null)
@@ -33,6 +33,7 @@ class UserRepository {
         auth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener { result ->
                 onComplete(true, null)
+
             }
             .addOnFailureListener { e ->
                 onComplete(false, e.message)

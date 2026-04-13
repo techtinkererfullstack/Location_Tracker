@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.locationtracking" />
-                  <option name="mobileSdkAppId" value="1:464803015466:android:851d597206e773b6314c53" />
-                  <option name="projectId" value="locationtrackingapplatlong" />
-                  <option name="projectNumber" value="464803015466" />
+                  <option name="mobileSdkAppId" value="1:625942893408:android:ac0de5daefedb92b148405" />
+                  <option name="projectId" value="locationtracking2-fc03f" />
+                  <option name="projectNumber" value="625942893408" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
