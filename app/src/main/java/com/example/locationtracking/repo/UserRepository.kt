@@ -1,6 +1,6 @@
 package com.example.locationtracking.repo
 
-import com.example.locationtracking.AppUsers
+import com.example.locationtracking.models.AppUsers
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

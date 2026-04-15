@@ -3,7 +3,7 @@ package com.example.locationtracking.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.locationtracking.AppUsers
+import com.example.locationtracking.models.AppUsers
 import com.example.locationtracking.repo.UserRepository
 
 class FriendListViewModel(private val repo: UserRepository): ViewModel() {

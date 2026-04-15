@@ -1,11 +1,11 @@
-package com.example.locationtracking
+package com.example.locationtracking.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.locationtracking.models.AppUsers
 import com.example.locationtracking.databinding.ItemUserBinding
 
 class UserAdapter(private val onItemClick: (AppUsers) -> Unit

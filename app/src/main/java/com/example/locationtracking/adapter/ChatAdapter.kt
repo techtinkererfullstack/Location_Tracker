@@ -1,10 +1,12 @@
-package com.example.locationtracking
+package com.example.locationtracking.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.locationtracking.models.ChatMessage
+import com.example.locationtracking.R
 import com.google.firebase.auth.FirebaseAuth
 
 class ChatAdapter(private val messages: List<ChatMessage>) :
@@ -25,7 +27,7 @@ class ChatAdapter(private val messages: List<ChatMessage>) :
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
         val message = messages[position]
         holder.tvMessage.text = message.text
-        
+
         // Simple alignment logic
         if (message.senderId == currentUserId) {
             holder.tvMessage.textAlignment = View.TEXT_ALIGNMENT_TEXT_END

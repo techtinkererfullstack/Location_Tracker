@@ -1,10 +1,12 @@
-package com.example.locationtracking
+package com.example.locationtracking.activities
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.locationtracking.adapter.ChatAdapter
 import com.example.locationtracking.databinding.ActivityChatBinding
+import com.example.locationtracking.models.ChatMessage
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query

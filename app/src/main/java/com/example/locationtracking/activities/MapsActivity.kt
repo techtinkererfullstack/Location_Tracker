@@ -1,4 +1,4 @@
-package com.example.locationtracking
+package com.example.locationtracking.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,11 +7,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.locationtracking.R
 import com.example.locationtracking.databinding.ActivityMapsBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -45,7 +47,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        val location = com.google.android.gms.maps.model.LatLng(lat, long)
+        val location = LatLng(lat, long)
         val marker = mMap.addMarker(MarkerOptions().position(location).title("Shared Location"))
         marker?.tag = "user_id_placeholder" // You should pass the actual user ID here
         

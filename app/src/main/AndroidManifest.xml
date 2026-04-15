@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LocationTracking">
         <activity
-            android:name=".MapsActivity"
+            android:name=".activities.MapsActivity"
             android:exported="false" />
 
         <meta-data
@@ -24,16 +24,16 @@
             android:value="AIzaSyDBlt6-P-jcZXfuHwsm1YOnGbBiG82W1lc" />
 
         <activity
-            android:name=".ChatActivity"
+            android:name=".activities.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".Profile"
+            android:name=".activities.Profile"
             android:exported="false" />
         <activity
-            android:name=".FrindList"
+            android:name=".activities.FrindList"
             android:exported="false" />
         <activity
-            android:name=".SigninSignup"
+            android:name=".activities.SigninSignup"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

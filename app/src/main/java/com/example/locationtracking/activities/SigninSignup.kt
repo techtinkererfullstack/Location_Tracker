@@ -1,13 +1,11 @@
-package com.example.locationtracking
+package com.example.locationtracking.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.locationtracking.databinding.ActivitySigninSignupBinding
@@ -50,7 +48,7 @@ class SigninSignup : AppCompatActivity() {
                     binding.ETEmail.error = "Please enter your email"
                     binding.ETEmail.requestFocus()
                 }
-                !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
+                !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
                     binding.ETEmail.error = "Invalid email format"
                     binding.ETEmail.requestFocus()
                 }
@@ -82,7 +80,7 @@ class SigninSignup : AppCompatActivity() {
                     binding.ETEmail.error = "Email is required"
                     binding.ETEmail.requestFocus()
                 }
-                !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
+                !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
                     binding.ETEmail.error = "Please enter a valid email address"
                     binding.ETEmail.requestFocus()
                 }

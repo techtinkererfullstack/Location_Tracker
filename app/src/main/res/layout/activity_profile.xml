@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:padding="24dp"
-    tools:context=".Profile">
+    tools:context=".activities.Profile">
 
     <TextView
         android:id="@+id/tv_email_heading"

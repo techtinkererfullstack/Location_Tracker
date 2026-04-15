@@ -1,4 +1,4 @@
-package com.example.locationtracking
+package com.example.locationtracking.models
 
 data class AppUsers(
     val userId: String = "",
