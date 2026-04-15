@@ -102,25 +102,25 @@ class SigninSignup : AppCompatActivity() {
         viewModel.registerResult.observe(this) { (success, message) ->
             if (success) {
                 Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
-                navigateToFrindList()
+                navigateToFriendList()
             } else {
-                Toast.makeText(this, "Registration Filed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Registration Failed", Toast.LENGTH_SHORT).show()
             }
         }
         viewModel.loginResult.observe(this) { (success, message) ->
             if (success) {
                 Toast.makeText(this, "Logged In Successful", Toast.LENGTH_SHORT).show()
-                navigateToFrindList()
+                navigateToFriendList()
             } else {
-                Toast.makeText(this, "Logged In Filed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Logged In Failed", Toast.LENGTH_SHORT).show()
             }
         }
 
 
     }
 
-    private fun navigateToFrindList() {
-        val intent = Intent(this, FrindList::class.java)
+    private fun navigateToFriendList() {
+        val intent = Intent(this, FriendList::class.java)
         startActivity(intent)
         finish()
     }

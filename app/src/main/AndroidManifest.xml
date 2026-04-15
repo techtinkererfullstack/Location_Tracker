@@ -30,7 +30,7 @@
             android:name=".activities.Profile"
             android:exported="false" />
         <activity
-            android:name=".activities.FrindList"
+            android:name=".activities.FriendList"
             android:exported="false" />
         <activity
             android:name=".activities.SigninSignup"
