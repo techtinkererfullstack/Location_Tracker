@@ -105,7 +105,7 @@ class FriendList : AppCompatActivity() {
         binding.fabLogout.setOnClickListener {
             viewModel.logOut()   // ⚠️ TODO: make sure ViewModel has this function
 
-            startActivity(Intent(this, AuthActivity::class.java).apply {
+            startActivity(Intent(this, SigninSignup::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             })
         }
@@ -118,13 +118,13 @@ class FriendList : AppCompatActivity() {
 
         repo.getUserById(uid) { user ->
             user?.let {
-                binding.tvMyProfileName.text = it.username.ifEmpty { "No Name" }
-                binding.tvMyProfileEmail.text = it.email
+                binding.tvMyName.text = it.username.ifEmpty { "No Name" }
+                binding.tvMyEmail.text = it.email
 
-                binding.tvMyProfileLat.text = "Lat: ${it.latitude ?: 0.0}"
-                binding.tvMyProfileLng.text = "Lng: ${it.longitude ?: 0.0}"
+                binding.tvMyLat.text = "Lat: ${it.latitude ?: 0.0}"
+                binding.tvMyLong.text = "Lng: ${it.longitude ?: 0.0}"
             } ?: run {
-                binding.tvMyProfileName.text = "User not found"
+                binding.tvMyName.text = "User not found"
 
                 // ⚠️ TODO: optionally show Toast or log error
             }
