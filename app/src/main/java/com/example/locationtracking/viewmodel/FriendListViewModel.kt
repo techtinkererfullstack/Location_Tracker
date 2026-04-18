@@ -15,4 +15,9 @@ class FriendListViewModel(private val repo: UserRepository): ViewModel() {
             _userList.value = users
         }
     }
+
+    fun logOut(){
+        repo.logOut()
+    }
+
 }

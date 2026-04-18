@@ -14,34 +14,26 @@ class UserRepository {
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
     fun registerUser(email: String, password: String, onComplete: (Boolean, String?) -> Unit) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnSuccessListener { result ->
+        auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener { result ->
                 val userId = result.user?.uid ?: return@addOnSuccessListener
                 val userName = email.substringBefore("@")
                 val user = AppUsers(
-                    userId = userId,
-                    username = userName,
-                    email = email
+                    userId = userId, username = userName, email = email
                 )
-                db.collection("users").document(userId).set(user)
-                    .addOnSuccessListener {
+                db.collection("users").document(userId).set(user).addOnSuccessListener {
                         onComplete(true, null)
-                    }
-                    .addOnFailureListener { e ->
+                    }.addOnFailureListener { e ->
                         onComplete(false, e.message)
                     }
-            }
-            .addOnFailureListener { e ->
+            }.addOnFailureListener { e ->
                 onComplete(false, e.message)
             }
     }
 
     fun loginUser(email: String, password: String, onComplete: (Boolean, String?) -> Unit) {
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnSuccessListener { result ->
+        auth.signInWithEmailAndPassword(email, password).addOnSuccessListener { result ->
                 onComplete(true, null)
-            }
-            .addOnFailureListener { e ->
+            }.addOnFailureListener { e ->
                 onComplete(false, e.message)
             }
 
@@ -49,14 +41,12 @@ class UserRepository {
     }
 
     fun getAllUsers(onComplete: (List<AppUsers>) -> Unit) {
-        db.collection("users").get()
-            .addOnSuccessListener { snapshot ->
+        db.collection("users").get().addOnSuccessListener { snapshot ->
                 val list = snapshot.documents.mapNotNull { doc ->
                     doc.toObject(AppUsers::class.java)
                 }
                 onComplete(list)
-            }
-            .addOnFailureListener {
+            }.addOnFailureListener {
                 onComplete(emptyList())
             }
     }
@@ -67,12 +57,10 @@ class UserRepository {
 
     fun getUserById(userId: String, callback: (AppUsers?) -> Unit) {
 
-        db.collection("users").document(userId).get()
-            .addOnSuccessListener { doc ->
+        db.collection("users").document(userId).get().addOnSuccessListener { doc ->
                 val user = doc.toObject(AppUsers::class.java)
                 callback(user)
-            }
-            .addOnFailureListener {
+            }.addOnFailureListener {
                 callback(null)
             }
 
@@ -81,8 +69,7 @@ class UserRepository {
     fun updateLocation(userId: String, lat: Double, lng: Double, onComplete: (Boolean) -> Unit) {
         db.collection("users").document(userId).update(
             mapOf(
-                "latitude" to lat,
-                "longitude" to lng
+                "latitude" to lat, "longitude" to lng
 
             )
         ).addOnSuccessListener { onComplete.invoke(true) }
@@ -97,8 +84,7 @@ class UserRepository {
         val userId = getCurrentUserId() ?: return
 
         if (ActivityCompat.checkSelfPermission(
-                context,
-                Manifest.permission.ACCESS_FINE_LOCATION
+                context, Manifest.permission.ACCESS_FINE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
             onComplete(false)
@@ -106,11 +92,16 @@ class UserRepository {
         }
         fused.lastLocation.addOnSuccessListener { loc ->
             if (loc != null) {
-                updateLocation(userId, loc.latitude, loc.longitude, onComplete)
-                onComplete(true)
+                updateLocation(userId, loc.latitude, loc.longitude) { success ->
+                    onComplete(success)
+                }
             } else {
                 onComplete(false)
             }
         }
     }
+    fun logOut(){
+        auth.signOut()
+    }
+
 }

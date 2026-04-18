@@ -6,14 +6,6 @@
         <entry key="Firebase Crashlytics">
           <value>
             <InsightsFilterSettings>
-              <option name="connection">
-                <ConnectionSetting>
-                  <option name="appId" value="com.example.locationtracking" />
-                  <option name="mobileSdkAppId" value="1:625942893408:android:ac0de5daefedb92b148405" />
-                  <option name="projectId" value="locationtracking2-fc03f" />
-                  <option name="projectNumber" value="625942893408" />
-                </ConnectionSetting>
-              </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
               <option name="timeIntervalDays" value="THIRTY_DAYS" />
               <option name="visibilityType" value="ALL" />

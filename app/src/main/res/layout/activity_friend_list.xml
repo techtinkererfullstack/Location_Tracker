@@ -136,16 +136,68 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <!-- Floating Action Buttons -->
+    <LinearLayout
+        android:id="@+id/fabContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:contentDescription="Add Friend"
-        app:backgroundTint="@color/card"
-        app:layout_anchor="@id/heading"
-        app:layout_anchorGravity="top|end"
-        app:srcCompat="@android:drawable/ic_input_add"
-        app:tint="@color/text" />
+        android:gravity="end"
+        android:orientation="vertical"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Profile"
+            android:src="@drawable/baseline_person_24"
+            android:visibility="gone"
+            app:backgroundTint="@color/text"
+            app:fabSize="mini"
+            app:rippleColor="@color/black"
+            app:tint="@color/white" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabShowMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Map"
+            android:src="@drawable/baseline_add_location_alt_24"
+            android:visibility="gone"
+            app:backgroundTint="@color/text"
+            app:fabSize="mini"
+            app:rippleColor="@color/text"
+            app:tint="@color/white" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Logout"
+            android:src="@drawable/outline_account_circle_24"
+            android:visibility="gone"
+            app:backgroundTint="@color/text"
+            app:fabSize="mini"
+            app:rippleColor="@color/black"
+            app:tint="@color/white" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="34dp"
+            android:contentDescription="Menu"
+            android:src="@drawable/outline_action_key_24"
+            app:backgroundTint="@color/text"
+            app:elevation="10dp"
+            app:rippleColor="@color/black"
+            app:tint="@color/white" />
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
